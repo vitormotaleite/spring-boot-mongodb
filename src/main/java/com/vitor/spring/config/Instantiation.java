@@ -12,6 +12,7 @@ import com.vitor.spring.domain.Post;
 import com.vitor.spring.domain.User;
 import com.vitor.spring.domain.repository.PostRepository;
 import com.vitor.spring.domain.repository.UserRepository;
+import com.vitor.spring.dto.AuthorDTO;
 
 @Configuration
 public class Instantiation implements CommandLineRunner {
@@ -37,8 +38,8 @@ public class Instantiation implements CommandLineRunner {
 		
 		this.userRepository.saveAll(Arrays.asList(maria,alex,bob));
 		
-		Post post1 = new Post(null,sdf.parse("21/08/2018"),"partiu viagem!","vou viajar para sao paulo, abracos!",maria);
-		Post post2 = new Post(null,sdf.parse("23/08/2018"),"bom dia","acordei feliz hoje",maria);
+		Post post1 = new Post(null,sdf.parse("21/08/2018"),"partiu viagem!","vou viajar para sao paulo, abracos!",new AuthorDTO(maria));
+		Post post2 = new Post(null,sdf.parse("23/08/2018"),"bom dia","acordei feliz hoje",new AuthorDTO(maria));
 		
 		this.postRepository.saveAll(Arrays.asList(post1,post2));
 
